@@ -1,5 +1,5 @@
 //score (apples eaten)
-let score = 0;
+let score = null;
 
 //table size - 1
 let tableSize = 25;
@@ -19,34 +19,37 @@ function makeTable() {
 }
 
 function easyMode() {
+    score = 0;
+    speed = 150;
     document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
     document.getElementById(`playGround`).innerHTML = ``;
     makeTable();
     refreshSnake();
     generateFood();
-    speed = 150;
 }
 
 function hardMode() {
+    score = 0;
+    speed = 50;
     document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
     document.getElementById(`playGround`).innerHTML = ``;
     makeTable();
     refreshSnake();
     generateFood();
-    speed = 50;
 }
 
 function insaneMode() {
+    score = 0;
+    speed = 25;
     document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
     document.getElementById(`playGround`).innerHTML = ``;
     makeTable();
     refreshSnake();
     generateFood();
-    speed = 25;
 }
 
 //food generation
-function getFoodCoordinates(min, max) {
+function getCoordinates(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
@@ -55,8 +58,8 @@ function getFoodCoordinates(min, max) {
 function generateFood() {
     document.getElementById("score").innerText = score;
     let collision = false;
-    let fX = getFoodCoordinates(1, (tableSize - 1));
-    let fY = getFoodCoordinates(1, (tableSize - 1));
+    let fX = getCoordinates(1, (tableSize - 1));
+    let fY = getCoordinates(1, (tableSize - 1));
     for (let i = 0; i < snake.length; ++i) {
         let coordinates = snake[i];
         let index = coordinates.indexOf(",");
@@ -71,4 +74,28 @@ function generateFood() {
     } else {
         generateFood();
     }
+}
+
+function gameOver(status) {
+    clearInterval(repeatMove);
+    if (score === 1) {
+        if (status === 'itself') {
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
+            apple eaten!</h3></div>`;
+        } else {
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
+            apple eaten!</h3></div>`;
+        }
+    } else {
+        if (status === 'itself') {
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
+            apples eaten!</h3></div>`;
+        } else {
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
+            apples eaten!</h3></div>`;
+        }
+    }
+    document.getElementById(`playGround`).innerHTML = `
+    <button type="button" class="btn btn-secondary" onclick="location.reload();">Try again!</button>
+    `;
 }

@@ -4,6 +4,7 @@ html {
 
 body {
     color: #003000;
+    margin-top: 50px;
     background-image: linear-gradient(#0D4E0D,#398439);
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +24,7 @@ tr, td {
 }
 
 #score {
-    color: yellow;
+    color: red;
 }
 
 .head {
@@ -46,7 +47,6 @@ tr, td {
     border-radius: 50px;
 }
 
-.leaf {
-    background-color: #398439;
-    border-radius: 50px;
+.island {
+    background-color: cyan;
 }
