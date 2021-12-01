@@ -79,18 +79,18 @@ function generateFood() {
 function gameOver(status) {
     clearInterval(repeatMove);
     if (score === 1) {
-        if (status === 'itself') {
+        if (status === 'body') {
             document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
             apple eaten!</h3></div>`;
-        } else {
+        } else if (status === 'wall') {
             document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
             apple eaten!</h3></div>`;
         }
     } else {
-        if (status === 'itself') {
+        if (status === 'body') {
             document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
             apples eaten!</h3></div>`;
-        } else {
+        } else if (status === 'wall') {
             document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
             apples eaten!</h3></div>`;
         }

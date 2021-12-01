@@ -21,7 +21,6 @@ function refreshSnake() {
         let index = coordinates.indexOf(",");
         let x = coordinates.substr(0, index);
         let y = coordinates.substr(index + 1);
-        //rotateSnake(x, y);
         if (i === snake.length - 1) {
             document.getElementById(x + `,` + y).classList.add('head');
         } else if (i === 0) {

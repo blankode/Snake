@@ -37,6 +37,9 @@ document.addEventListener('keydown', function(event) {
 
 //snake movement
 function moveLeft() {
+    if (headY <= -1) {
+        gameOver('wall');
+    }
     refreshHeadCoordinates();
     --headY;
     snake.shift();
@@ -48,12 +51,17 @@ function moveLeft() {
         ++score;
         generateFood();
     } else if (document.getElementById(headX + `,` + headY).classList.contains('body') || document.getElementById(headX + `,` + headY).classList.contains('tail')) {
-        gameOver('self');
+        gameOver('body');
+    } else if (headY <= -1) {
+        gameOver('wall');
     }
     refreshSnake();
 }
 
 function moveRight() {
+    if (headY >= tableSize) {
+        gameOver('wall');
+    }
     refreshHeadCoordinates();
     ++headY;
     snake.shift();
@@ -65,12 +73,15 @@ function moveRight() {
         ++score;
         generateFood();
     } else if (document.getElementById(headX + `,` + headY).classList.contains('body') || document.getElementById(headX + `,` + headY).classList.contains('tail')) {
-        gameOver('self');
+        gameOver('body');
     }
     refreshSnake();
 }
 
 function moveDown() {
+    if (headX >= tableSize) {
+        gameOver('wall');
+    }
     refreshHeadCoordinates();
     ++headX;
     snake.shift();
@@ -82,12 +93,15 @@ function moveDown() {
         ++score;
         generateFood();
     } else if (document.getElementById(headX + `,` + headY).classList.contains('body') || document.getElementById(headX + `,` + headY).classList.contains('tail')) {
-        gameOver('self');
+        gameOver('body');
     }
     refreshSnake();
 }
 
 function moveUp() {
+    if (headX <= -1) {
+        gameOver('wall');
+    }
     refreshHeadCoordinates();
     --headX;
     snake.shift();
@@ -99,7 +113,7 @@ function moveUp() {
         ++score;
         generateFood();
     } else if (document.getElementById(headX + `,` + headY).classList.contains('body') || document.getElementById(headX + `,` + headY).classList.contains('tail')) {
-        gameOver('self');
+        gameOver('body');
     }
     refreshSnake();
 }
