@@ -1,17 +1,19 @@
 //repeat interval
-let repeatMove = null, speed = null;
+let repeatMove = null,
+    speed = null;
 
 //avoid collision
-let currentDirection = null, previousDirection = null;
+let currentDirection = null,
+    previousDirection = null;
 
 //listen to keyboard inputs so we can move the snake
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (score != null) {
         clearInterval(repeatMove);
-        if((event.key === 'A' || event.key === 'a' || event.key === 'ArrowLeft') && previousDirection !== 'right') {
+        if ((event.key === 'A' || event.key === 'a' || event.key === 'ArrowLeft') && previousDirection !== 'right') {
             currentDirection = 'left';
             repeatMove = setInterval(moveLeft, speed);
-        } else if((event.key === 'D' || event.key === 'd' || event.key === 'ArrowRight') && previousDirection !== 'left') {
+        } else if ((event.key === 'D' || event.key === 'd' || event.key === 'ArrowRight') && previousDirection !== 'left') {
             currentDirection = 'right';
             repeatMove = setInterval(moveRight, speed);
         } else if ((event.key === 'S' || event.key === 's' || event.key === 'ArrowDown') && previousDirection !== 'up') {

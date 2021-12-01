@@ -10,7 +10,7 @@ function makeTable() {
     for (let i = 0; i < tableSize; ++i) {
         table += `<tr>`;
         for (let j = 0; j < tableSize; ++j) {
-            table += `<td id="`+ i +`,`+ j +`"></td>`;
+            table += `<td id="` + i + `,` + j + `"></td>`;
         }
         table += `</tr>`;
     }
@@ -53,7 +53,7 @@ function getCoordinates(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
-  }
+}
 
 function generateFood() {
     document.getElementById("score").innerText = score;
@@ -80,18 +80,18 @@ function gameOver(status) {
     clearInterval(repeatMove);
     if (score === 1) {
         if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
             apple eaten!</h3></div>`;
         } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
             apple eaten!</h3></div>`;
         }
     } else {
         if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">`+ score + `</strong>
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
             apples eaten!</h3></div>`;
         } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">`+ score + `</strong>
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
             apples eaten!</h3></div>`;
         }
     }

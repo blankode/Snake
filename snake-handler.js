@@ -1,11 +1,13 @@
 //snake body
-let snake = ['5,5','5,6','5,7'];
+let snake = ['5,5', '5,6', '5,7'];
 
 //snake head coordinates
-let headX = 5, headY = 7;
+let headX = 5,
+    headY = 7;
 
 //snake tail coordinates
-let tailX = 5, tailY = 5;
+let tailX = 5,
+    tailY = 5;
 
 //snake table refresh (movement effect)
 function refreshSnake() {
