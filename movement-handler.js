@@ -1,5 +1,5 @@
 //repeat interval
-let repeatMove = null, speed = 100;
+let repeatMove = null, speed = null;
 
 //avoid collision
 let currentDirection = null, previousDirection = null;
@@ -32,3 +32,68 @@ document.addEventListener('keydown', function(event) {
     }
     previousDirection = currentDirection;
 });
+
+//snake movement
+function moveLeft() {
+    refreshHeadCoordinates();
+    --headY;
+    snake.shift();
+    snake.push(headX + `,` + headY);
+    if (document.getElementById(headX + `,` + headY).classList.contains('food')) {
+        refreshTailCoordinates();
+        --tailY;
+        snake.push(tailX + `,` + tailY);
+        ++score;
+        generateFood();
+    }
+    refreshSnake();
+}
+
+function moveRight() {
+    refreshHeadCoordinates();
+    ++headY;
+    snake.shift();
+    snake.push(headX + `,` + headY);
+    if (document.getElementById(headX + `,` + headY).classList.contains('food')) {
+        refreshTailCoordinates();
+        ++tailY;
+        snake.push(tailX + `,` + tailY);
+        ++score;
+        generateFood();
+    }
+    refreshSnake();
+}
+
+function moveDown() {
+    refreshHeadCoordinates();
+    ++headX;
+    snake.shift();
+    snake.push(headX + `,` + headY);
+    if (document.getElementById(headX + `,` + headY).classList.contains('food')) {
+        refreshTailCoordinates();
+        ++tailX;
+        snake.push(tailX + `,` + tailY);
+        ++score;
+        generateFood();
+    }
+    refreshSnake();
+}
+
+function moveUp() {
+    refreshHeadCoordinates();
+    --headX;
+    snake.shift();
+    snake.push(headX + `,` + headY);
+    if (document.getElementById(headX + `,` + headY).classList.contains('food')) {
+        refreshTailCoordinates();
+        --tailX;
+        snake.push(tailX + `,` + tailY);
+        ++score;
+        generateFood();
+    } else if (document.getElementById(headX + `,` + headY).classList.contains('body')) {
+
+    } else if (document.getElementById(headX + `,` + headY).classList.contains('tail')) {
+
+    }
+    refreshSnake();
+}

@@ -16,9 +16,12 @@
 <body>
     <center>
     <h1>Classic Snake</h1>
-    <h3>Apples eaten: <strong id="score"></strong></h3>
+    <h3 id="gameMode">Select your game mode: <strong id="score"></strong></h3>
     <hr>
     <div class="container" id="playGround">
+        <button type="button" class="btn btn-primary" onclick="easyMode()">Easy Mode</button>
+        <button type="button" class="btn btn-primary" onclick="hardMode()">Hard Mode</button>
+        <button type="button" class="btn btn-primary" onclick="insaneMode()">Insane Mode</button>
     </div>
 </center>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
