@@ -12,16 +12,16 @@ document.addEventListener('keydown', function (event) {
     if (currentDirection === null) {
         repeatMove = setInterval(moveSnake, speed);
     }
-        if ((event.key === 'A' || event.key === 'a' || event.key === 'ArrowLeft') && previousDirection !== 'right') {
-            currentDirection = 'left';
-        } else if ((event.key === 'D' || event.key === 'd' || event.key === 'ArrowRight') && previousDirection !== 'left') {
-            currentDirection = 'right';
-        } else if ((event.key === 'S' || event.key === 's' || event.key === 'ArrowDown') && previousDirection !== 'up') {
-            currentDirection = 'down';
-        } else if ((event.key === 'W' || event.key === 'w' || event.key === 'ArrowUp') && previousDirection !== 'down') {
-            currentDirection = 'up';
-        }
-        previousDirection = currentDirection;
+    if ((event.key === 'A' || event.key === 'a' || event.key === 'ArrowLeft') && previousDirection !== 'right') {
+        currentDirection = 'left';
+    } else if ((event.key === 'D' || event.key === 'd' || event.key === 'ArrowRight') && previousDirection !== 'left') {
+        currentDirection = 'right';
+    } else if ((event.key === 'S' || event.key === 's' || event.key === 'ArrowDown') && previousDirection !== 'up') {
+        currentDirection = 'down';
+    } else if ((event.key === 'W' || event.key === 'w' || event.key === 'ArrowUp') && previousDirection !== 'down') {
+        currentDirection = 'up';
+    }
+    previousDirection = currentDirection;
 });
 
 //snake movement
