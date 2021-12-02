@@ -20,16 +20,6 @@ document.addEventListener('keydown', function (event) {
             currentDirection = 'down';
         } else if ((event.key === 'W' || event.key === 'w' || event.key === 'ArrowUp') && previousDirection !== 'down') {
             currentDirection = 'up';
-        } else {
-            if (previousDirection === 'left') {
-                currentDirection = 'left';
-            } else if (previousDirection === 'right') {
-                currentDirection = 'right';
-            } else if (previousDirection === 'down') {
-                currentDirection = 'down';
-            } else if (previousDirection === 'up') {
-                currentDirection = 'up';
-            }
         }
         previousDirection = currentDirection;
 });
