@@ -18,29 +18,9 @@ function makeTable() {
     document.getElementById(`playGround`).innerHTML = table;
 }
 
-function easyMode() {
+function startGame(hardness) {
+    speed = hardness;
     score = 0;
-    speed = 150;
-    document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
-    document.getElementById(`playGround`).innerHTML = ``;
-    makeTable();
-    refreshSnake();
-    generateFood();
-}
-
-function hardMode() {
-    score = 0;
-    speed = 50;
-    document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
-    document.getElementById(`playGround`).innerHTML = ``;
-    makeTable();
-    refreshSnake();
-    generateFood();
-}
-
-function insaneMode() {
-    score = 0;
-    speed = 25;
     document.getElementById(`gameMode`).innerHTML = `Score: <strong id="score"></strong>`;
     document.getElementById(`playGround`).innerHTML = ``;
     makeTable();
