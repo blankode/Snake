@@ -3,13 +3,14 @@ let repeatMove = null,
     speed = null;
 
 //avoid collision
-let currentDirection = null,
+let currentDirection = 'left',
     previousDirection = 'right';
 
 //listen to keyboard inputs so we can move the snake
 document.addEventListener('keydown', function (event) {
     //starts movement repetition
-    if (currentDirection === null) {
+    if (currentDirection === 'left' && previousDirection === 'right') {
+        currentDirection = 'right';
         repeatMove = setInterval(moveSnake, speed);
     }
     if ((event.key === 'A' || event.key === 'a' || event.key === 'ArrowLeft') && previousDirection !== 'right') {
@@ -53,6 +54,7 @@ function moveSnake() {
             --tailX;
         }
         snake.push(tailX + `,` + tailY);
+        eatSound.play();
         ++score;
         generateFood();
     } else if (document.getElementById(headX + `,` + headY).classList.contains('body') || document.getElementById(headX + `,` + headY).classList.contains('tail')) {

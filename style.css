@@ -3,16 +3,16 @@ html {
 }
 
 body {
-    color: #003000;
+    color: black;
     margin-top: 50px;
-    background-image: linear-gradient(#0D4E0D,#398439);
+    background-color: #9AC503;
     background-position: center;
     background-repeat: no-repeat;
     background-size:auto;
 }
 
 table {
-    border: 2px solid #0D4E0D;
+    border: 5px solid black;
     overflow: hidden;
 }
 
@@ -22,30 +22,48 @@ tr, td {
     overflow: hidden;
 }
 
-#score {
-    color: red;
+hr {
+    border: 5px solid black;
+}
+
+.container-bg {
+    border: 5px solid black;
+    padding: 10px;
+    width: 650px;
+}
+
+.button-bg {
+    border: 5px solid black;
+    padding: 5px;
+    font-weight: bolder;
+}
+
+.button-bg:hover {
+    border: 5px solid #9AC503;
+    background-color: black;
+    color: #9AC503;
+}
+
+.alert-bg {
+    background-color: black;
+    color: #9AC503;
 }
 
 .head {
-    background-color: #0D4E0D;
-    border-radius: 50px;
+    background-color: black;
+    border-radius: 5px;
 }
 
 .body {
-    background-color: #398439;
-    border-radius: 50px;
+    background-color: black;
+    border-radius: 5px;
 }
 
 .tail {
-    background-color: #5DA25D;
-    border-radius: 50px;
+    background-color: black;
+    border-radius: 5px;
 }
 
 .food {
-    background-color: red;
-    border-radius: 50px;
-}
-
-.island {
-    background-color: cyan;
+    background-image: url('./img/point.png');
 }

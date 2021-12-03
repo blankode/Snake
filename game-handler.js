@@ -1,5 +1,9 @@
-//score (apples eaten)
+//score (targets eaten)
 let score = null;
+
+//game
+let eatSound = new Audio('./sounds/eat.mp3');
+let deathSound = new Audio('./sounds/gameOver.mp3');
 
 //table size - 1
 let tableSize = 25;
@@ -58,24 +62,25 @@ function generateFood() {
 
 function gameOver(status) {
     clearInterval(repeatMove);
+    deathSound.play();
     if (score === 1) {
         if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
-            apple eaten!</h3></div>`;
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-bg" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
+            target eaten!</h3></div>`;
         } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
-            apple eaten!</h3></div>`;
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-bg" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
+            target eaten!</h3></div>`;
         }
     } else {
         if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
-            apples eaten!</h3></div>`;
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-bg" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
+            targets eaten!</h3></div>`;
         } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-dark" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
-            apples eaten!</h3></div>`;
+            document.getElementById(`gameMode`).innerHTML = `<hr><div class="alert alert-bg" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
+            targets eaten!</h3></div>`;
         }
     }
     document.getElementById(`playGround`).innerHTML = `
-    <button type="button" class="btn btn-secondary" onclick="location.reload();">Try again!</button>
+    <button type="button" class="btn button-bg" onclick="location.reload();">Try again!</button>
     `;
 }
