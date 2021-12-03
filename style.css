@@ -46,6 +46,7 @@ hr {
 
 .alert-bg {
     background-color: black;
+    border-radius: 0px;
     color: #9AC503;
 }
 
