@@ -63,23 +63,8 @@ function generateFood() {
 function gameOver(status) {
     clearInterval(repeatMove);
     deathSound.play();
-    if (score === 1) {
-        if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<div class="alert alert-bg" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
-            target eaten!</h3></div>`;
-        } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<div class="alert alert-bg" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
-            target eaten!</h3></div>`;
-        }
-    } else {
-        if (status === 'body') {
-            document.getElementById(`gameMode`).innerHTML = `<div class="alert alert-bg" role="alert"><h3>You have eaten your body and finished the game with <strong id="score">` + score + `</strong>
-            targets eaten!</h3></div>`;
-        } else if (status === 'wall') {
-            document.getElementById(`gameMode`).innerHTML = `<div class="alert alert-bg" role="alert"><h3>You have walked into the wall and finished the game with <strong id="score">` + score + `</strong>
-            targets eaten!</h3></div>`;
-        }
-    }
+    document.getElementById(`gameMode`).innerHTML = `<div class="alert alert-bg" role="alert"><h3>Game Over<br> You have scored  <strong id="score">` + score + `</strong>
+    </h3></div>`;
     document.getElementById(`playGround`).innerHTML = `
     <button type="button" class="btn button-bg" onclick="location.reload();">Try again!</button>
     `;
